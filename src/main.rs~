@@ -1,0 +1,15 @@
+mod naive;
+mod mat;
+mod sq5;
+mod square;
+mod time;
+mod write;
+use num_bigint::BigUint;
+
+fn main() {
+    let funs: [(&str, fn(usize) -> BigUint); 4] = [("naive", naive::fib), ("matrix", mat::fib), ("golden", sq5::fib), ("square", square::fib)];
+    for (fun_name, fun) in funs {
+        println!("Starting: {}", fun_name);
+        let _ = write::write_file(fun_name, fun);
+    }
+}

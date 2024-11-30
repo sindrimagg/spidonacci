@@ -12,8 +12,8 @@ pub fn write_file(name: &str, f: fn(usize) -> BigUint) -> Result<()> {
         let res = time::time_fn(i, f);
         write_line(&mut writer, format!("{:11}, {:11}", i, res))?;
 
-        i += 100_000;
-        if res > 4_100_000_000 {
+        i += 10_000;
+        if res > 1_100_000_000 {
             break;
         }
     }
